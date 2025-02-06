@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartHome & Gadgeturi - Magazin Online</title>
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    /* Secțiunea Hero */
+    .hero {
+      background: url('https://via.placeholder.com/1920x500?text=Smart+Home+%26+Gadgeturi') no-repeat center center;
+      background-size: cover;
+      height: 500px;
+      color: #fff;
+      position: relative;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    /* Carduri de produs */
+    .product-card {
+      margin-bottom: 30px;
+    }
+    /* Stil pentru iconița coșului */
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+    }
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">SmartHome & Gadgeturi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" 
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" href="#hero">Acasă</a></li>
+        <li class="nav-item"><a class="nav-link" href="#produse">Produse</a></li>
+        <li class="nav-item"><a class="nav-link" href="#despre">Despre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <!-- Coș de cumpărături -->
+        <li class="nav-item">
+          <a class="nav-link cart-icon" href="#" data-toggle="modal" data-target="#cartModal">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/shopping-cart.png"/>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Secțiunea Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-text">
+      <h1>SmartHome & Gadgeturi</h1>
+      <p>Inovație pentru un stil de viață modern</p>
+      <a href="#produse" class="btn btn-primary btn-lg">Descoperă produsele</a>
+    </div>
+  </section>
+
+  <!-- Secțiunea Produse -->
+  <section id="produse" class="container my-5">
+    <h2 class="text-center mb-4">Produsele Noastre</h2>
+    <div class="row">
+      <!-- Produs 1 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="https://via.placeholder.com/350x200?text=Smart+Speaker" class="card-img-top" alt="Smart Speaker">
+          <div class="card-body">
+            <h5 class="card-title">Smart Speaker</h5>
+            <p class="card-text">Asistent vocal inteligent pentru casa ta.</p>
+            <p class="card-text"><strong>79.99€</strong></p>
+            <button class="btn btn-success" onclick="addToCart('Smart Speaker', 79.99)">Adaugă în coș</button>
+          </div>
+        </div>
+      </div>
+      <!-- Produs 2 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="https://via.placeholder.com/350x200?text=Senzor+de+mișcare" class="card-img-top" alt="Senzor de mișcare">
+          <div class="card-body">
+            <h5 class="card-title">Senzor de mișcare</h5>
+            <p class="card-text">Monitorizează activitatea din casă.</p>
+            <p class="card-text"><strong>49.99€</strong></p>
+            <button class="btn btn-success" onclick="addToCart('Senzor de mișcare', 49.99)">Adaugă în coș</button>
+          </div>
+        </div>
+      </div>
+      <!-- Produs 3 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="https://via.placeholder.com/350x200?text=Lumini+inteligente" class="card-img-top" alt="Lumini inteligente">
+          <div class="card-body">
+            <h5 class="card-title">Lumini inteligente</h5>
+            <p class="card-text">Controlează intensitatea și culoarea luminilor.</p>
+            <p class="card-text"><strong>39.99€</strong></p>
+            <button class="btn btn-success" onclick="addToCart('Lumini inteligente', 39.99)">Adaugă în coș</button>
+          </div>
+        </div>
+      </div>
+      <!-- Poți adăuga și alte produse similar -->
+    </div>
+  </section>
+
+  <!-- Secțiunea Despre -->
+  <section id="despre" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Despre Noi</h2>
+      <p>La <strong>SmartHome & Gadgeturi</strong> oferim cele mai inovative soluții pentru un stil de viață modern și eficient energetic. Produsele noastre smart îți aduc confort și siguranță în casa ta.</p>
+    </div>
+  </section>
+
+  <!-- Secțiunea Contact -->
+  <section id="contact" class="container my-5">
+    <h2 class="text-center mb-4">Contact</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Informații de contact</h5>
+        <p>Email: contact@smarthomegadgeturi.ro</p>
+        <p>Telefon: +40 123 456 789</p>
+        <p>Adresă: Str. Exemplu nr. 10, București</p>
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="nume">Nume</label>
+            <input type="text" class="form-control" id="nume" placeholder="Introdu numele tău">
+          </div>
+          <div class="form-group">
+            <label for="emailContact">Email</label>
+            <input type="email" class="form-control" id="emailContact" placeholder="Introdu email-ul">
+          </div>
+          <div class="form-group">
+            <label for="mesaj">Mesaj</label>
+            <textarea class="form-control" id="mesaj" rows="4" placeholder="Scrie mesajul tău"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Trimite mesajul</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Coș de cumpărături -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Coșul tău</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Închide">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Tabel pentru produse în coș -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Produs</th>
+                <th>Preț</th>
+                <th>Cantitate</th>
+                <th>Total</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+              <!-- Elementele vor fi adăugate din JavaScript -->
+            </tbody>
+          </table>
+          <h5 class="text-right">Total General: <span id="cart-total">0</span>€</h5>
+          <hr>
+          <!-- Formular de checkout -->
+          <h5>Checkout</h5>
+          <form id="checkout-form">
+            <div class="form-group">
+              <label for="numeCheckout">Nume</label>
+              <input type="text" class="form-control" id="numeCheckout" placeholder="Numele complet" required>
+            </div>
+            <div class="form-group">
+              <label for="emailCheckout">Email</label>
+              <input type="email" class="form-control" id="emailCheckout" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <label for="adresaCheckout">Adresă</label>
+              <input type="text" class="form-control" id="adresaCheckout" placeholder="Adresă de livrare" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Plasează Comanda</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 SmartHome & Gadgeturi. Toate drepturile rezervate.</p>
+      <p>
+        <a href="#" class="text-light mr-2">Facebook</a>
+        <a href="#" class="text-light mr-2">Instagram</a>
+        <a href="#" class="text-light">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripturile Bootstrap și dependențele -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Script JavaScript pentru funcționalitatea coșului -->
+  <script>
+    let cart = [];
+
+    function addToCart(productName, price) {
+      // Caută dacă produsul este deja în coș
+      const existingProduct = cart.find(item => item.name === productName);
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cart.push({ name: productName, price: price, quantity: 1 });
+      }
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotalDisplay = document.getElementById('cart-total');
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.price.toFixed(2)}€</td>
+          <td>${item.quantity}</td>
+          <td>${itemTotal.toFixed(2)}€</td>
+          <td><button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">Șterge</button></td>
+        `;
+        cartItemsContainer.appendChild(row);
+      });
+      cartCount.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+      cartTotalDisplay.innerText = total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartDisplay();
+    }
+
+    // Tratarea formularului de checkout
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Într-un site real, aici ai trimite datele către un server
+      if (cart.length === 0) {
+        alert("Coșul este gol!");
+        return;
+      }
+      const nume = document.getElementById('numeCheckout').value;
+      const email = document.getElementById('emailCheckout').value;
+      const adresa = document.getElementById('adresaCheckout').value;
+      
+      // Simulăm plasarea comenzii
+      alert(`Mulțumim, ${nume}! Comanda ta în valoare de ${document.getElementById('cart-total').innerText}€ a fost plasată. Un email de confirmare va fi trimis la ${email}.`);
+      
+      // Resetăm coșul și formularul
+      cart = [];
+      updateCartDisplay();
+      this.reset();
+      // Închidem modalul
+      $('#cartModal').modal('hide');
+    });
+  </script>
+</body>
+</html>
